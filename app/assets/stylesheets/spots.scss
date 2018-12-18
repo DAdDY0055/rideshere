@@ -167,3 +167,27 @@ h2 {
 
 /* 新規投稿ページ(new部分)終わり */
 
+
+/* 一覧表示ページ(index部分)PCサイズ用　始まり */
+@media screen and (min-width:600px) {
+  .spots {
+    width: 40%;
+    float: left;
+    margin: 0px;
+  }
+  
+  .content {
+    font-size: 34px;
+    margin: 10px 30px 60px 30px;
+  }
+  
+  .content img {
+    margin-top: -70px;
+  }
+
+  footer {
+    margin-top: 4000px;
+  }
+}
+/* 一覧表示ページ(index部分)終わり */
+
