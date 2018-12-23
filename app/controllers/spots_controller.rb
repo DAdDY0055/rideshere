@@ -22,7 +22,20 @@ class SpotsController < ApplicationController
   end
 
   def create
+
+    spot_photo = spot_params[:spot_photo]
+
+    binding.pry
+
+    image_params = {}
+    if spot_photo != nil
+      spot_params[:spot_photo] = spot_photo.read
+    end
+
+    binding.pry
+
     @spot = Spot.new(spot_params)
+
     @spot.user_id = current_user.id
     # タグ情報を保存する際、"["と"]"を削除した状態で保存する(タグなしの場合、実行しない)
     if @spot.spot_tag
@@ -45,6 +58,14 @@ class SpotsController < ApplicationController
     end
 
   end
+
+  # 画像をDBに保存
+
+  def show_image
+    @spot = Spot.find(params[:id])
+    send_data @spot.spot_photo, :type => 'image/png', :disposition => 'inline'
+  end
+
 
   def show
     @spot = Spot.find(params[:id])

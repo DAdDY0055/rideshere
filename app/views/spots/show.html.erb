@@ -5,6 +5,8 @@
   <div class="content">
 
     <p class="picture_content"><%= image_tag @spot.spot_photo.url %></p>
+    <p class="picture_content"><%= image_tag(show_image_spot_path(@spot)) %></p>
+
     
     <p>
       <strong>住所:</strong>

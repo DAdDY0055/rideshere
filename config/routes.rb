@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :comments
     member do
       get :likes
+      get :show_image
     end
   end
     
